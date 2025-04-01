@@ -12,7 +12,7 @@
     <?php include 'layout/header.php'; ?>
 
     <div class="container">
-        <h1>Welcome to Lost and Hound</h1>
+        <h1>Connecting Pets and Owners Across Gainesville</h1>
         <p>Your go-to place for posting and finding lost pets!</p>
 
         <h2>Lost Pets</h2>
