@@ -50,7 +50,13 @@ lost-and-hound
 2. Navigate to the project directory.
 3. Set up the MySQL database using the `sql/schema.sql` file.
 4. Update the database configuration in `src/config/database.php`.
+5. Ensure that php is installed (try running "php -v"). If not, install as "brew install php".
+6. Ensure MySQL is installed. If not, install as "brew install mysql" and "brew services start mysql".
+7. Start the PHP built-in server by running "php -S localhost:8000 -t public"
+8. Open up "http://localhost:8000 -t public" in your web browser.
 5. Run the application by accessing `public/index.php` in your web browser.
+
+NOTE: if there are "permission denied" errors, try: "chmod -R 755 public".
 
 ## Contributing
 

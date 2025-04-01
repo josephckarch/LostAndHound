@@ -3,8 +3,12 @@
 class PetController {
     private $db;
 
-    public function __construct($database) {
-        $this->db = $database;
+    public function __construct() {
+    }
+
+    //opens up the home page
+    public function showHomePage() {
+        include '../src/views/home.php';
     }
 
     public function addPet($petData) {
