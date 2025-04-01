@@ -1,1 +1,16 @@
-/* This file is intentionally left blank. */
+.button {
+    background-color: #2F748A; /* Default background color */
+    color: #FFFFFF; /* Default text color */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Add padding */
+    font-size: 16px; /* Set font size */
+    font-weight: bold; /* Make text bold */
+    border-radius: 5px; /* Add rounded corners */
+    cursor: pointer; /* Change cursor to pointer */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+    text-decoration: none;
+}
+
+.button:hover {
+    background-color: #215464;
+}
