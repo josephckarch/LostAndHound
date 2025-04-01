@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@400;700&display=swap" rel="stylesheet"> //adds font
 </head>
 
 <body>
-    <header class="bg-light py-3">
-        <div class="container">
-            <h1 class="text-center">Lost & Hound</h1>
+    <header class="py-3" style="background-color: #F5E1DC;">
+        <div class="container" style="font-family: 'Spartan', sans-serif;">
+            <h1 class="text-center" style="font-family: 'Spartan', sans-serif; color: #DA6274; font-weight: 700;">Lost & Hound</h1>
             <nav class="navbar navbar-expand-lg navbar-light">
                 <a class="navbar-brand" href="/">Home</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
