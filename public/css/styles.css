@@ -14,3 +14,53 @@
 .button:hover {
     background-color: #215464;
 }
+
+body {
+    font-family: sans-serif;
+	background-size: 800px;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: bottom;
+	background: linear-gradient(0deg, #f5e1dc 0%, #fff5f3 100%);
+	margin: 10px;
+    padding: 0;
+}
+header {
+    background-color: #333; /*TODO: change color*/
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+nav {
+    background-color: #eee;
+    padding: 0.5rem;
+    text-align: center;
+}
+nav a {
+    margin: 0 1rem;
+    text-decoration: none;
+    color: #333;
+}
+.container {
+    margin: 1rem auto;
+    padding: 1rem;
+    background-color: white;
+    width: 80%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.hero {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+.actions {
+    text-align: center;
+}
+.actions a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    background-color: rgb(55, 55, 116);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
