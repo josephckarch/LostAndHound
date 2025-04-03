@@ -37,5 +37,29 @@
     }
         */
     ?>
-    <?php include '../src/views/lost-pets-page.php'; ?>
+
+    <?php
+        $requestUri = $_SERVER['REQUEST_URI'];
+        require_once '../src/controllers/PetController.php';
+        $petController = new PetController();
+
+        if ($requestUri === '/') {
+            // Show the home page
+            $petController->showHomePage();
+        }
+        elseif ($requestUri === '/create-post') {
+            $petController->showCreatePostPage();
+        }
+        elseif ($requestUri === '/sign-up') {
+            $petController->showCreateAccountPage();
+        }
+        elseif ($requestUri === '/login') {
+            $petController->showLoginPage();
+        }
+        elseif ($requestUri === '/lost-pets-page') {
+            $petController->showLostPetsPage();
+        }
+
+
+    ?>
 </html>
