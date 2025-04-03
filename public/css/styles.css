@@ -1,13 +1,13 @@
 .button {
-    background-color: #2F748A; /* Default background color */
-    color: #FFFFFF; /* Default text color */
-    border: none; /* Remove border */
-    padding: 10px 20px; /* Add padding */
-    font-size: 16px; /* Set font size */
-    font-weight: bold; /* Make text bold */
-    border-radius: 5px; /* Add rounded corners */
-    cursor: pointer; /* Change cursor to pointer */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+    background-color: #2F748A;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
     text-decoration: none;
 }
 
@@ -25,22 +25,42 @@ body {
 	margin: 10px;
     padding: 0;
 }
+
 header {
     background-color: #333; /*TODO: change color*/
     color: white;
     padding: 1rem;
     text-align: center;
 }
+
+.header-lost-pets {
+    background-color: #FBCDC2;
+    color: #AA4C5A;
+    text-align: center;
+    padding: 1rem;
+}
+
+.pet-card {
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
 nav {
     background-color: #eee;
     padding: 0.5rem;
     text-align: center;
 }
+
 nav a {
     margin: 0 1rem;
     text-decoration: none;
     color: #333;
 }
+
 .container {
     margin: 1rem auto;
     padding: 1rem;
@@ -48,13 +68,16 @@ nav a {
     width: 80%;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
+
 .hero {
     text-align: center;
     margin-bottom: 1.5rem;
 }
+
 .actions {
     text-align: center;
 }
+
 .actions a {
     display: inline-block;
     padding: 0.5rem 1rem;
@@ -63,4 +86,13 @@ nav a {
     color: white;
     text-decoration: none;
     border-radius: 5px;
+}
+
+.left-input, .right-input {
+    flex: 1;
+    flex-direction: column;
+}
+
+.whole-input {
+    flex-direction: row;
 }

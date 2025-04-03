@@ -8,46 +8,8 @@
     </head>
     
     <body>
-        <header>
-            <h1>Lost & Hound</h1>
-            <style>
-                header{
-                    background-color: #f5e1dc;
-                    color:#DA6274;
-                }
-                .container {
-                    background-color: #f5e1dc;
-                    height: 600px;
-                    width: 600px;
-                    align-items:center;
-                   
-                }
-                .container input{
-                    width: 90%; 
-                      max-width: 300px; 
-                      padding: 10px;
-                      margin: 5px 0;
-                      font-size: 16px; 
-                      background-color:;
-                }
-                .container button {
-                    background-color:white;
-                      width: 50%; 
-                      padding: 5px;
-                      margin: 5px 0;
-                      font-size: 15px; 
-                      border-radius: 10px;
+        <?php include '../src/views/layout/header.php'; ?>
 
-                    }
-                .container p{
-                    font-size: 12px;
-                    color:black;
-                }    
-            </style>
-            
-
-            
-        </header>
 
         <div class="container">
          
