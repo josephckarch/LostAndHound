@@ -14,7 +14,7 @@
 
 
 <body>
-    <?php include 'layout/header.php'; ?>
+    <?php include '../src/views/layout/header.php'; ?>
     <?php
     $lostPets = [
         [

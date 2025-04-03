@@ -26,7 +26,13 @@
                             <a class="nav-link" href="/login">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/create-account">Create Account</a>
+                            <a class="nav-link" href="/sign-up">Sign Up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/lost-pets-page">Browse</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/create-post">Create Post</a>
                         </li>
                     </ul>
                 </div>

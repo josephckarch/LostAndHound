@@ -11,6 +11,22 @@ class PetController {
         include '../src/views/home.php';
     }
 
+    public function showCreatePostPage() {
+        include '../public/create-post.php';
+    }
+
+    public function showLostPetsPage() {
+        include '../public/lost-pets-page.php';
+    }
+
+    public function showLoginPage() {
+        include '../public/login.php';
+    }
+
+    public function showCreateAccountPage() {
+        include '../public/create_account.php';
+    }
+
     public function addPet($petData) {
         // Logic to add a new pet to the database
         // Example: Prepare and execute an SQL statement to insert pet data
