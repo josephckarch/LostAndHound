@@ -8,7 +8,7 @@ class PetController {
 
     //opens up the home page
     public function showHomePage() {
-        include '../src/views/home.php';
+        include '../views/home.php';
     }
 
     public function addPet($petData) {
