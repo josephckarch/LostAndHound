@@ -37,27 +37,5 @@
     }
         */
     ?>
-    <body>
-        <header>
-            <h1>Lost & Hound</h1>
-        </header>
-    
-        <nav>
-            <a href="login.php">Login</a>
-            <a href="create_account.php">Create Account</a>
-        </nav>
-    
-        <div class="container">
-            <div class="hero">
-                <h2>Connecting Pets and Owners Across Gainesville</h2>
-                <p>Helping to reunite lost pets with their loving families.</p>
-            </div>
-    
-            <div class="actions">
-                <a href="report_lost.php">I can't find my pet</a><br>
-                <a href="report_found.php">I found someone's pet!</a><br>
-                 <a href="browse_posts.php">Browse Posts</a>
-            </div>
-        </div>
-    </body>
+    <?php include '../src/views/lost-pets-page.php'; ?>
 </html>
