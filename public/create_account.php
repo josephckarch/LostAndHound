@@ -7,10 +7,6 @@
         <link rel="stylesheet" href="./css/styles.css">
     </head>
     <style>
-        header{
-            background-color: #f5e1dc;
-            color:#DA6274;
-        }
         .container {
             display: flex;
             flex-direction: column;
@@ -35,11 +31,8 @@
     </style>
     
     <body>
-        <header>
-            <h1>Lost & Hound</h1>
-        </header>
 
-    
+        <?php include '../src/views/layout/header.php'; ?>
         <div class="container">
             <form action=/>
                 <p id="create_account">Create An Account</p>
