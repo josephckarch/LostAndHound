@@ -8,7 +8,23 @@ class PetController {
 
     //opens up the home page
     public function showHomePage() {
-        include '../src/views/home.php';
+        include '../views/home.php';
+    }
+
+    public function showCreatePostPage() {
+        include '../public/create-post.php';
+    }
+
+    public function showLostPetsPage() {
+        include '../public/lost-pets-page.php';
+    }
+
+    public function showLoginPage() {
+        include '../public/login.php';
+    }
+
+    public function showCreateAccountPage() {
+        include '../public/create_account.php';
     }
 
     public function addPet($petData) {
