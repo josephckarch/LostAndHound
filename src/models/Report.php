@@ -18,17 +18,18 @@ class Report {
     }
 
     // Create new Report
-    public function createReport($user_id, $pet_id, $description, $location) {
-        $sql = "INSERT INTO reports (user_id, pet_id, description, location) 
-        VALUES ('$user_id', '$pet_id', '$description', '$location')";
+    public function createReport($description, $pet_id, $user_id, $location) {
+        $query = "INSERT INTO reports (description, pet_id, user_id, location) 
+        VALUES (:description, :pet_id, :user_id, :location)";
 
-        return $this->db->exec($sql);
-    }
-
-    public function getReportById($id) {
-        $sql = "SELECT * FROM reports WHERE id = '$id'";
-        $stmt = $this->db->query($sql);
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        $stmt = $this->db->prepare($query);
+        // Execute the query with the parameter inputs
+        return $stmt->execute([
+            ':description' => $description,
+            ':pet_id' => $pet_id,
+            ':user_id' => $user_id,
+            ':location' => $location
+        ]);
     }
 
 }
