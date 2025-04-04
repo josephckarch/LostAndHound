@@ -1,3 +1,4 @@
+#!/usr/local/bin/php
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,36 +8,45 @@
         <link rel="stylesheet" href="./css/styles.css">
     </head>
     <?php
-    /*
-    // Start the session
-    session_start();
-    
-    // Include the database configuration
-    require_once '../src/config/database.php';
-    
-    // Include the PetController
-    require_once '../src/controllers/PetController.php';
-    
-    // Create an instance of PetController
-    $petController = new PetController();
-    
-    // Route the request to the appropriate method
-    $requestUri = $_SERVER['REQUEST_URI'];
-    
-    if ($requestUri === '/') {
-        // Show the home page
-        $petController->showHomePage();
-    } elseif (preg_match('/^\/pet\/(\d+)$/', $requestUri, $matches)) {
-        // Show pet details
-        $petId = $matches[1];
-        $petController->showPetDetails($petId);
-    } else {
-        // Handle 404 Not Found
-        http_response_code(404);
-        echo "404 Not Found";
-    }
-        */
+        /*
+        // Start the session
+        session_start();
+
+        // Include the database configuration
+        require_once '../src/config/database.php';
+
+        // Include the PetController
+        require_once '../src/controllers/PetController.php';
+
+        // Create an instance of PetController
+        $petController = new PetController();
+
+        // Route the request to the appropriate method
+        $requestUri = $_SERVER['REQUEST_URI'];
+
+        if ($requestUri === '/') {
+            // Show the home page
+            $petController->showHomePage();
+        } elseif (preg_match('/^\/pet\/(\d+)$/', $requestUri, $matches)) {
+            // Show pet details
+            $petId = $matches[1];
+            $petController->showPetDetails($petId);
+        } else {
+            // Handle 404 Not Found
+            http_response_code(404);
+            echo "404 Not Found";
+        }
+            */ 
     ?>
+    <body>
+        <header>
+            <h1>Lost & Hound</h1>
+        </header>
+    
+        <nav>
+            <a href="login.php">Login</a>
+            <a href="create_account.php">Create Account</a>
+        </nav>
 
     <?php
         $requestUri = $_SERVER['REQUEST_URI'];
@@ -59,7 +69,6 @@
         elseif ($requestUri === '/lost-pets-page') {
             $petController->showLostPetsPage();
         }
-
-
     ?>
+</body>
 </html>
