@@ -6,7 +6,7 @@ class ReportController {
     private $db;
 
     public function __construct($_db) {
-        $db = $_db;
+        $this->db = $_db;
     }
     
     // this function needs a pet to already be created because it requires the pet_id
