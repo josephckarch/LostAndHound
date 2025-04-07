@@ -8,14 +8,13 @@ class Pet {
     private $image;
     private $status; // lost or found
 
-    public function __construct($id, $name, $breed, $age, $description, $image, $status) {
+    public function __construct($id, $name, $breed, $age, $description, $image) {
         $this->id = $id;
         $this->name = $name;
         $this->breed = $breed;
         $this->age = $age;
         $this->description = $description;
         $this->image = $image;
-        $this->status = $status;
     }
 
     // Getters and Setters
@@ -43,9 +42,6 @@ class Pet {
         return $this->image;
     }
 
-    public function getStatus() {
-        return $this->status;
-    }
 
     public function setName($name) {
         $this->name = $name;
@@ -67,13 +63,19 @@ class Pet {
         $this->image = $image;
     }
 
-    public function setStatus($status) {
-        $this->status = $status;
-    }
 
-    // Method to save pet to the database
-    public function save() {
-        // Database interaction logic to save the pet
+    // Method to save a pet to the database
+    public function create($db) {
+        $query = "INSERT INTO pets (name, breed, age, description)
+                  VALUES (:name, :breed, :age, :description)";
+        
+        $stmt = $db->prepare($query);
+        return $stmt->execute([
+            ':name' => $this->name,
+            ':breed' => $this->breed,
+            ':age' => $this->age,
+            ':description' => $this->description
+        ]);
     }
 
     // Method to update pet information
