@@ -12,14 +12,14 @@
     $email = $_POST['email'];
     $password = $_POST['password'];
     
-    $stmt = $conn->prepare("SELECT id, email, password FROM users WHERE email = ?");
+    $stmt = $conn->prepare("SELECT id, username, email, password FROM users WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $stmt->store_result();
 
     // Check if the email exists
     if ($stmt->num_rows > 0) {
-        $stmt->bind_result($id, $stored_email, $stored_password);
+        $stmt->bind_result($stored_id, $stored_username, $stored_email, $stored_password);
         $stmt->fetch();
 
         //if password is correct
@@ -28,7 +28,8 @@
             //start the session
             $_SESSION['valid'] = true;
             $_SESSION['email'] = $stored_email;
-            $_SESSION['user_id'] = $id;
+            $_SESSION['user_id'] = $stored_id;
+            $_SESSION['username'] = $stored_username;
             header("Location: index.php");
             exit();
         }
