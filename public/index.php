@@ -39,14 +39,7 @@
             */ 
     ?>
     <body>
-        <header>
-            <h1>Lost & Hound</h1>
-        </header>
-    
-        <nav>
-            <a href="login.php">Login</a>
-            <a href="create_account.php">Create Account</a>
-        </nav>
+        <?php include '../src/views/layout/header.php'; ?>
 
     <?php
         $requestUri = $_SERVER['REQUEST_URI'];

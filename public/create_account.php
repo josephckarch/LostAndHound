@@ -7,35 +7,17 @@
         <title>Create Account</title>
         <link rel="stylesheet" href="./css/styles.css">
     </head>
-    <style>
-        .container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            background-color: #f5e1dc;
-            height: 600px;
-            width: 600px;
-            align-items:center;
-                   
-                }
-        .container input{
-            align-items:"center";
-            font-family: "Spartan", sans-serif;
-        }
-        #create_account{
-            text-align: center;
-            font-size:20px;
-            font-family: "Spartan", sans-serif;
-            font-weight:bold;
-
-        }
-    </style>
     
     <body>
-
         <?php include '../src/views/layout/header.php'; ?>
+        <?php
+            session_start();
+            if(empty($_SESSION['valid'])) {
+                header('Location: index.php');
+            }
+        ?>
         <div class="container">
-            <form action=/>
+            <form method ="post" action='add_account.php'>
                 <p id="create_account">Create An Account</p>
                 <label for="fname">First Name:</label>
                 <input type="text" id="fname" name="fname"><br><br>
@@ -43,6 +25,8 @@
                 <input type="text" id="lname" name="lname"><br><br>
                 <label for="email">Email:</label>
                 <input type="text" id="email" name="email"><br><br>
+                <label for="phone_number">Phone Number:</label>
+                <input type="text" id="phone_number" name="phone_number"><br><br>
                 <label for="Password">Password:</label>
                 <input type="text" id="password" name="password"><br><br>
                 <label for="cpassword">Confirm Password:</label>
