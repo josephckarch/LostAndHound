@@ -13,11 +13,12 @@
     
     <body>
         <?php include '../src/views/layout/header.php'; ?>
+
    
 
         <div class="container">
 
-            <form action=/home.php class ="login-form">
+            <form method="post" action="./handle_login.php" class ="login-form">
             <div class="text-center mb-3">
                  <button type="button" class="ufl-btn">Login with UFL</button> <br><br>
                 <button type="button" class="email-btn">Login with Email</button>
@@ -29,12 +30,12 @@
             </div>
             <div class= "form-group; text-align: center">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" name="password " placeholder ="Password" required><br><br>
+                <input type="password" class="form-control" id="password" name="password" placeholder ="Password" required><br><br>
             </div>
             <div class= text-center mt-3>
                 <input type="submit" class="button" value="Login"><br><br>
             </div>
-            <p class="text-center mt-3">Do not have an account? <a href="/create_account.php">Sign Up Here</a></p>
+            <p class="text-center mt-3">Don't have an account? <a href="/create_account.php">Sign Up Here</a></p>
 
             </form>
             
