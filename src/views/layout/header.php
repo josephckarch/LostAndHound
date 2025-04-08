@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,20 +17,34 @@
 <body>
     <header class="py-3" style="background-color: #F5E1DC;">
         <div class="container" style="font-family: 'Spartan', sans-serif;">
-            <h1 class="text-center" style="font-family: 'Spartan', sans-serif; color: #DA6274; font-weight: 700;">Lost & Hound</h1>
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <?php if (isset($_SESSION['username'])): ?>
+                        <span class="font-weight-bold text-muted">Logged in as: <?= htmlspecialchars($_SESSION['username']) ?></span>
+                    <?php endif; ?>
+                </div>
+                <h1 class="text-center" style="color: #DA6274; font-weight: 700;">Lost & Hound</h1>
+                <div></div>
+            </div>
             <nav class="navbar navbar-expand-lg navbar-light">
                 <a class="navbar-brand" href="./index.php">Home</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="./login.php">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./create_account.php">Sign Up</a>
-                        </li>
+                        <?php if (!isset($_SESSION['username'])): ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./login.php">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./create_account.php">Sign Up</a>
+                            </li>
+                            <?php else: ?>
+                                <li class="nav-item">
+                                <a class="nav-link" href="./logout.php">Log Out</a>
+                            </li>
+                        <?php endif; ?>
                         <li class="nav-item">
                             <a class="nav-link" href="./lost-pets-page.php">Browse</a>
                         </li>

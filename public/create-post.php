@@ -1,11 +1,19 @@
 #!/usr/local/bin/php
+<?php
+    //make sure user is signed in before they make a post
+    session_start();
+    if (!isset($_SESSION['valid']) || $_SESSION['valid'] !== true) {
+        header("Location: ./login.php");
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lost & Hound - Home</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="./css/styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/js/scripts.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@400;700&display=swap" rel="stylesheet">
