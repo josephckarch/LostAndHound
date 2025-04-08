@@ -1,3 +1,4 @@
+#!/usr/local/bin/php
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +25,7 @@
             'age' => 'pretty young',
             'description' => 'Buddy is a friendly golden retriever that responds to his namme. He was last found at Marston.',
             'status' => 'lost',
-            'image' => '/images/buddy.jpeg'
+            'image' => './images/buddy.jpeg'
         ],
         [
             'id' => 2,
@@ -33,7 +34,7 @@
             'age' => 'old and chill',
             'description' => 'Max was found lying by Gator Corner hanging out with Tenders.',
             'status' => 'found',
-            'image' => '/images/max.jpeg'
+            'image' => './images/max.jpeg'
         ],
         [
             'id' => 3,
@@ -42,7 +43,7 @@
             'age' => 'unknown',
             'description' => 'Bella disappeared from my apartment! She is white and black. Pretty small.',
             'status' => 'lost',
-            'image' => '/images/bella.jpeg'
+            'image' => './images/bella.jpeg'
         ]
         ];
      ?>

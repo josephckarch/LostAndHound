@@ -28,3 +28,13 @@ echo "<table border ='1'>";
                 }
                 echo "</table>";
 ?>
+
+            <div class="container">
+                <form action="add.php">
+                    username: <input type='text' name='username'>
+                    email: <input type='text' name='email'>
+                    password: <input type='text' name='password'>
+                    phone number: <input type='text' name='phone_number'>
+                    <input type="submit" value="add">
+                </form>
+            </div>
