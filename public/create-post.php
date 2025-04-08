@@ -1,3 +1,4 @@
+#!/usr/local/bin/php
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +20,7 @@
     <div class="container whole-input">
         <h1 style="font-family: 'Spartan', sans-serif;">Create a Post</h1>
 
-        <form action="/submit-post.php" method="POST" enctype="multipart/form-data">
+        <form action="./create-post.php" method="POST" enctype="multipart/form-data">
         <div class="left-input">
             <div class="form-group">
                 <label for="petType">Type of Pet</label>
@@ -72,9 +73,6 @@
         </form>
         </div>
 
-        
-        
-    
     <script>
 
     </script>

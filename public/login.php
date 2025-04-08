@@ -15,7 +15,7 @@
         <div class="container">
          
             <form action=/>
-            <center> <button type="button">Login with UFL</button><center>
+            <center> <button type="button">Login with UFL</button></center>
             <br>
             <center><button type="button">Login with Email</button></center>
             <br>
@@ -25,7 +25,7 @@
             <label for="password">Password:</label>
             <input type="password" id="password" name="password"><br><br>
             <input type="submit" value="Login">
-            <p>Do not have an account? <a href="/create_account.php">Sign Up Here</a></p>
+            <p>Do not have an account? <a href="./create_account.php">Sign Up Here</a></p>
 
             </form>
             
