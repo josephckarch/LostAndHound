@@ -10,12 +10,6 @@
     
     <body>
         <?php include '../src/views/layout/header.php'; ?>
-        <?php
-            session_start();
-            if(empty($_SESSION['valid'])) {
-                header('Location: index.php');
-            }
-        ?>
         <div class="container">
             <form method ="post" action='add_account.php'>
                 <p id="create_account">Create An Account</p>

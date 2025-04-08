@@ -10,22 +10,22 @@
     
     <body>
         <?php include '../src/views/layout/header.php'; ?>
-
-
         <div class="container">
          
-            <form action=/>
+            <form method="post" action="./handle_login.php">
+            <!--
             <center> <button type="button">Login with UFL</button></center>
             <br>
             <center><button type="button">Login with Email</button></center>
             <br>
+            -->
             <hr>
             <label for="email">Email:</label>
             <input type="text" id="email" name="email"><br><br>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password"><br><br>
             <input type="submit" value="Login">
-            <p>Do not have an account? <a href="./create_account.php">Sign Up Here</a></p>
+            <p>Don't have an account? <a href="./create_account.php">Sign Up Here</a></p>
 
             </form>
             
