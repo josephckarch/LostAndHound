@@ -18,7 +18,7 @@
 
         <div class="container">
 
-            <form method="post" action="./handl_login.php" class ="login-form">
+            <form method="post" action="./handle_login.php" class ="login-form">
             <div class="text-center mb-3">
                  <button type="button" class="ufl-btn">Login with UFL</button> <br><br>
                 <button type="button" class="email-btn">Login with Email</button>
@@ -30,7 +30,7 @@
             </div>
             <div class= "form-group; text-align: center">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" name="password " placeholder ="Password" required><br><br>
+                <input type="password" class="form-control" id="password" name="password" placeholder ="Password" required><br><br>
             </div>
             <div class= text-center mt-3>
                 <input type="submit" class="button" value="Login"><br><br>
