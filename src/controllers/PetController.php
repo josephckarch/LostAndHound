@@ -1,9 +1,12 @@
 <?php
 
+include "../models/Pet.php";
+
 class PetController {
     private $db;
 
-    public function __construct() {
+    public function __construct($_db) {
+        $this->db = $_db;
     }
 
     //opens up the home page
@@ -27,9 +30,18 @@ class PetController {
         include '../public/create_account.php';
     }
 
-    public function addPet($petData) {
+    public function addPet($id, $name, $breed, $age, $description, $image) {
         // Logic to add a new pet to the database
         // Example: Prepare and execute an SQL statement to insert pet data
+
+        // ID will be auto generated somehow
+        // not implementing image stuff yet for simplicity
+        $newPet = new Pet(null, $name, $breed, $age, $description, null);
+        $success = $newPet->create($this->db);
+        
+        // if pet creation did not work. echo failure
+        if (!$success)
+            echo "Failed to create pet.";
     }
 
     public function updatePet($petId, $petData) {
