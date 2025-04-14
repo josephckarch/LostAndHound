@@ -46,6 +46,26 @@
             'image' => './images/bella.jpeg'
         ]
         ];
+
+
+        $searchQuery = isset($_GET['search']) ? strtolower(trim($_GET['search'])) : '';
+        $filteredPets = [];
+
+        if ($searchQuery !== '') {
+            foreach ($lostPets as $pet) {
+                if (
+                    strpos(strtolower($pet['name']), $searchQuery) !== false ||
+                    strpos(strtolower($pet['breed']), $searchQuery) !== false ||
+                    strpos(strtolower($pet['description']), $searchQuery) !== false ||
+                    strpos(strtolower($pet['age']), $searchQuery) !== false
+
+                ) {
+                    $filteredPets[] = $pet;
+                }
+            }
+        } else {
+            $filteredPets = $lostPets;
+        }
      ?>
 
     <div class="container">
@@ -53,22 +73,35 @@
             <h1 style="font-family: 'Spartan', sans-serif;">Lost Pets</h1>
         </div>
 
+        <form method="GET" action="" class="mb-4">
+            <div class="input-group">
+                <input type="text" name="search" class="form-control" placeholder="Search by name, breed, or description..." value="<?php echo htmlspecialchars($searchQuery); ?>">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit">Search</button>
+                </div>
+            </div>
+        </form>
+
         <div class="container lost-pets-list">
             <div class="row">
-                <?php foreach ($lostPets as $pet): ?>
-                    <div class="col-md-4">
-                        <div class="pet-card card mb-4">
-                            <img src="<?php echo htmlspecialchars($pet['image']); ?>" alt="Pet Image" class="card-img-top pet-image">
-                            <div class="card-body">
-                                <h2 class="card-title"><?php echo htmlspecialchars($pet['name']); ?></h2>
-                                <p class="card-text">Breed: <?php echo htmlspecialchars($pet['breed']); ?></p>
-                                <p class="card-text">Age: <?php echo htmlspecialchars($pet['age']); ?></p>
-                                <p class="card-text">Description: <?php echo htmlspecialchars($pet['description']); ?></p>
-                                <p class="card-text">Status: <?php echo htmlspecialchars($pet['status']); ?></p>
+                <?php if (count($filteredPets) > 0): ?>
+                        <?php foreach ($filteredPets as $pet): ?>
+                            <div class="col-md-4">
+                                <div class="pet-card card mb-4">
+                                    <img src="<?php echo htmlspecialchars($pet['image']); ?>" alt="Pet Image" class="card-img-top pet-image">
+                                    <div class="card-body">
+                                        <h2 class="card-title"><?php echo htmlspecialchars($pet['name']); ?></h2>
+                                        <p class="card-text">Breed: <?php echo htmlspecialchars($pet['breed']); ?></p>
+                                        <p class="card-text">Age: <?php echo htmlspecialchars($pet['age']); ?></p>
+                                        <p class="card-text">Description: <?php echo htmlspecialchars($pet['description']); ?></p>
+                                        <p class="card-text">Status: <?php echo htmlspecialchars($pet['status']); ?></p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <p>No pets found matching your search criteria.</p>
+                    <?php endif; ?>
             </div>
         </div>
     <script>
