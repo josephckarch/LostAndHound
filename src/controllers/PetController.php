@@ -1,17 +1,27 @@
+
 <?php
 
-include "../models/Pet.php";
+include "../src/models/Pet.php";
 
 class PetController {
     private $db;
 
+    //temporary constructor before database is integrated
+    public function __construct() {
+        // Initialize the database connection here
+        $this->db = null; // Replace with actual database connection
+    }
+
+    //uncomment the other one
+    /*
     public function __construct($_db) {
         $this->db = $_db;
     }
+        */
 
     //opens up the home page
     public function showHomePage() {
-        include '../views/home.php';
+        include '../src/views/home.php';
     }
 
     public function showCreatePostPage() {
