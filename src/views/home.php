@@ -13,8 +13,6 @@
 </head>
 
 <body>
-    <?php include 'layout/header.php'; ?>
-
     <div class="container">
         <h1>Connecting Pets and Owners Across Gainesville</h1>
 
