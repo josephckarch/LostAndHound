@@ -1,0 +1,20 @@
+# Ignore environment files
+.env
+
+# Ignore Composer dependencies
+/vendor/
+
+# Ignore database configuration files
+src/config/database.php
+
+# Ignore compiled files
+*.log
+*.cache
+
+# Ignore IDE-specific files
+.vscode/
+.idea/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
