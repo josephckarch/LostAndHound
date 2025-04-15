@@ -1,4 +1,3 @@
-#!/usr/local/bin/php
 <?php
     session_start();
     $config = parse_ini_file("../../../../database/db3_config.ini");

@@ -1,4 +1,3 @@
-#!/usr/local/bin/php
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,8 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Lost & Hound - Main Page</title>
         <link rel="stylesheet" href="./css/styles.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="/js/scripts.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@400;700&display=swap" rel="stylesheet">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     </head>
     <?php
+        require_once '../vendor/autoload.php';
+
+        $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../src');
+        $dotenv->load();
+
+        $PHOTO_API = $_ENV['PHOTO_API_KEY'];
         /*
         // Start the session
         session_start();
@@ -63,5 +73,8 @@
             $petController->showLostPetsPage();
         }
     ?>
+
+    </div>
 </body>
 </html>
+
