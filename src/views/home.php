@@ -62,6 +62,8 @@
                 <p>I can't find my pet</p>
                 <a href="/create-post.php" class="button">Create a Post</a>
             </div>
+
+            
             
             <div class="right-half">
                 <img class="landing-image" src="https://static.vecteezy.com/system/resources/previews/026/419/516/non_2x/kawaii-cute-happy-cat-in-clipart-generative-ai-png.png" />
