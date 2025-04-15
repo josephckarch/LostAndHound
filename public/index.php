@@ -1,4 +1,3 @@
-#!/usr/local/bin/php
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,6 +12,12 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     </head>
     <?php
+        require_once '../vendor/autoload.php';
+
+        $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../src');
+        $dotenv->load();
+
+        $PHOTO_API = $_ENV['PHOTO_API'];
         /*
         // Start the session
         session_start();
