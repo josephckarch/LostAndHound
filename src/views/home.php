@@ -1,37 +1,65 @@
 <?php
     function fetchCatImage() {
-        $apiKey = $_ENV['PHOTO_API_KEY']; // Ensure PHOTO_API_KEY is loaded from .env
+        $apiKey = $_ENV['PHOTO_API_KEY']; 
         $apiUrl = 'https://api.thecatapi.com/v1/images/search';
 
-        // Initialize cURL
         $ch = curl_init($apiUrl);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
-            'x-api-key: ' . $apiKey, // Add the API key in the header
+            'x-api-key: ' . $apiKey, 
             'Content-Type: application/json'
         ]);
 
-        // Execute the request
         $response = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         $error = curl_error($ch);
         curl_close($ch);
 
-        // Handle the response
         if ($httpCode === 200) {
             $data = json_decode($response, true);
             if (isset($data[0]['url'])) {
-                return $data[0]['url']; // Return the first image URL
+                return $data[0]['url']; 
             } else {
                 error_log('Unexpected API response: ' . $response);
-                return 'https://via.placeholder.com/400'; // Fallback image
+                return ''; 
             }
         } else {
-            // Log the error
             error_log('API call failed. HTTP Code: ' . $httpCode . '. Error: ' . $error);
-            return 'https://via.placeholder.com/400'; // Fallback image
+            return '';
         }
     }
+
+    function fetchDogImage() {
+        $apiKey = $_ENV['PHOTO_API_KEY']; 
+        $apiUrl = 'https://api.thedogapi.com/v1/images/search';
+
+        $ch = curl_init($apiUrl);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            'x-api-key: ' . $apiKey, 
+            'Content-Type: application/json'
+        ]);
+
+        $response = curl_exec($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $error = curl_error($ch);
+        curl_close($ch);
+
+        if ($httpCode === 200) {
+            $data = json_decode($response, true);
+            if (isset($data[0]['url'])) {
+                return $data[0]['url']; 
+            } else {
+                error_log('Unexpected API response: ' . $response);
+                return ''; 
+            }
+        } else {
+            error_log('API call failed. HTTP Code: ' . $httpCode . '. Error: ' . $error);
+            return '';
+        }
+    }
+
+    
     $catImage = fetchCatImage();
     $dogImage = fetchCatImage();
     ?>
