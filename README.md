@@ -2,7 +2,7 @@
 
 #### Website for posting and finding lost pets!
 
-Authors: Joseph Karch, Winnie Augustin, Angela Li, Zachary Miller
+Authors: Joseph Karch, Winnie Augustin, Angela Li, Zachary Miller, Kenny Lin
 
 ## Project Overview
 
