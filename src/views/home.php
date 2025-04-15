@@ -61,7 +61,7 @@
 
     
     $catImage = fetchCatImage();
-    $dogImage = fetchCatImage();
+    $dogImage = fetchDogImage();
     ?>
 
 <!DOCTYPE html>
@@ -98,6 +98,7 @@
         padding: 20px;
         flex: 1;
         background-color: white;
+        margin-bottom: 50px;
     }
 
     .right-half {
@@ -107,15 +108,18 @@
         padding: 20px;
         flex: 1;
         background-color: white;
+        margin-bottom: 50px;
     }
 
     .landing-image {
         max-width: 30%;
+        max-height: 100px;
+        margin-bottom: 20px;
     }
 </style>
 
 <body>
-    <div style="margin-bottom: 50px;">
+    <div>
         <div class="home-container">
             <h1 class="heading">Connecting Pets and Owners<br>Across Gainesville</h1>
 
