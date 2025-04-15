@@ -96,3 +96,12 @@ nav a {
 .whole-input {
     flex-direction: row;
 }
+
+.navbar-light .navbar-nav .nav-item.active .nav-link {
+    font-weight: bold;
+    color: #DA6274;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #DA6274;
+}
