@@ -17,7 +17,7 @@
         $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../src');
         $dotenv->load();
 
-        $PHOTO_API = $_ENV['PHOTO_API_KEY'];
+        $PHOTO_API = $_ENV['PHOTO_API'];
         /*
         // Start the session
         session_start();
