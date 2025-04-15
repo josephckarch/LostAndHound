@@ -21,14 +21,12 @@ body {
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: bottom;
-	background: linear-gradient(0deg, #f5e1dc 0%, #fff5f3 100%);
+	background: #fceceb;
 	margin: 10px;
     padding: 0;
 }
 
 header {
-    background-color: #333; /*TODO: change color*/
-    color: white;
     padding: 1rem;
     text-align: center;
 }

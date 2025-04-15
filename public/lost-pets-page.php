@@ -1,4 +1,3 @@
-#!/usr/local/bin/php
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,7 +72,7 @@
             <h1 style="font-family: 'Spartan', sans-serif;">Lost Pets</h1>
         </div>
 
-        <form method="GET" action="" class="mb-4">
+        <form method="GET" action="" class="mb-4" style="margin-top: 20px;">
             <div class="input-group">
                 <input type="text" name="search" class="form-control" placeholder="Search by name, breed, or description..." value="<?php echo htmlspecialchars($searchQuery); ?>">
                 <div class="input-group-append">
