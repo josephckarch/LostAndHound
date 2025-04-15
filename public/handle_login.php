@@ -24,7 +24,7 @@
 
         //if password is correct
         //TODO: USE HASHING
-        if($password == $stored_password){
+        if(password_verify($password, $stored_password)){
             //start the session
             $_SESSION['valid'] = true;
             $_SESSION['email'] = $stored_email;
