@@ -1,4 +1,3 @@
-#!/usr/local/bin/php
 <?php
 	//lock page behind session variable
         session_start();
