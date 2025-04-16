@@ -1,9 +1,9 @@
 <?php
 // Database configuration
-$host = 'localhost'; // Database host
+$host = 'mysql.cise.ufl.edu'; // Database host
 $dbname = 'lost_and_hound'; // Database name
-$username = 'test_user'; // Database username
-$password = 'test_password'; // Database password
+$username = 'waugustin'; // Database username
+$password = 'l33Jaewook1.'; // Database password
 
 try {
     // Create a new PDO instance
