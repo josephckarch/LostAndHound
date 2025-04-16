@@ -1,6 +1,6 @@
 <?php
 // Database configuration
-$host = 'localhost'; // Database host
+$host = 'mysql.cise.ufl.edu'; // Database host
 $dbname = 'lost_and_hound'; // Database name
 $username = 'your_username'; // Database username
 $password = 'your_password'; // Database password
