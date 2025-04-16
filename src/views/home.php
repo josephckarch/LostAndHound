@@ -1,12 +1,37 @@
+#!/usr/local/bin/php
 <?php
-    function fetchCatImage() {
-        $apiKey = $_ENV['PHOTO_API_KEY']; 
+    function getPhotoApiKey($path) {
+        if (!file_exists($path)) {
+            error_log("File does not exist: " . $path);
+            return null;
+        }
+    
+        $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        foreach ($lines as $line) {
+            $line = trim($line);
+            error_log("Reading line: " . $line);
+            if (strpos($line, 'PHOTO_API_KEY=') === 0){
+                return trim(substr($line, strlen('PHOTO_API_KEY=')));
+            }
+        }
+        error_log('PHOTO_API_KEY not found in file');
+        return null;
+    }
+
+    error_log("Checking path: " . __DIR__ . '/../../../../../database/.env');
+
+    $apiKey = getPhotoApiKey(__DIR__ . '/../../../../../database/.env');
+    if ($apiKey === null) {
+        error_log('API key not found or invalid.');
+    }
+
+    function fetchCatImage($apiKey) {
         $apiUrl = 'https://api.thecatapi.com/v1/images/search';
 
         $ch = curl_init($apiUrl);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
-            'x-api-key: ' . $apiKey, 
+            'x-api-key: ' . $apiKey,
             'Content-Type: application/json'
         ]);
 
@@ -18,10 +43,10 @@
         if ($httpCode === 200) {
             $data = json_decode($response, true);
             if (isset($data[0]['url'])) {
-                return $data[0]['url']; 
+                return $data[0]['url'];
             } else {
                 error_log('Unexpected API response: ' . $response);
-                return ''; 
+                return '';
             }
         } else {
             error_log('API call failed. HTTP Code: ' . $httpCode . '. Error: ' . $error);
@@ -29,14 +54,13 @@
         }
     }
 
-    function fetchDogImage() {
-        $apiKey = $_ENV['PHOTO_API_KEY']; 
+    function fetchDogImage($apiKey) {
         $apiUrl = 'https://api.thedogapi.com/v1/images/search';
 
         $ch = curl_init($apiUrl);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
-            'x-api-key: ' . $apiKey, 
+            'x-api-key: ' . $apiKey,
             'Content-Type: application/json'
         ]);
 
@@ -48,10 +72,10 @@
         if ($httpCode === 200) {
             $data = json_decode($response, true);
             if (isset($data[0]['url'])) {
-                return $data[0]['url']; 
+                return $data[0]['url'];
             } else {
                 error_log('Unexpected API response: ' . $response);
-                return ''; 
+                return '';
             }
         } else {
             error_log('API call failed. HTTP Code: ' . $httpCode . '. Error: ' . $error);
@@ -59,10 +83,9 @@
         }
     }
 
-    
-    $catImage = fetchCatImage();
-    $dogImage = fetchDogImage();
-    ?>
+    $catImage = fetchCatImage($apiKey);
+    $dogImage = fetchDogImage($apiKey);
+?>
 
 <!DOCTYPE html>
 <html lang="en">
