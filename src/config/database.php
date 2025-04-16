@@ -2,8 +2,8 @@
 // Database configuration
 $host = 'localhost'; // Database host
 $dbname = 'lost_and_hound'; // Database name
-$username = 'your_username'; // Database username
-$password = 'your_password'; // Database password
+$username = 'test_user'; // Database username
+$password = 'test_password'; // Database password
 
 try {
     // Create a new PDO instance

@@ -12,6 +12,9 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     </head>
     <?php
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
         require_once '../vendor/autoload.php';
 
         $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../src');
@@ -56,8 +59,8 @@
         require_once '../src/controllers/PetController.php';
         $petController = new PetController();
 
-        if ($requestUri === '/') {
-            // Show the home page
+        if ($requestUri === '/' || $requestUri === '/index.php') {
+            // Show the home page for both / and /index.php
             $petController->showHomePage();
         }
         elseif ($requestUri === '/create-post') {
@@ -71,6 +74,10 @@
         }
         elseif ($requestUri === '/lost-pets-page') {
             $petController->showLostPetsPage();
+        }
+        else {
+            //show home page by default for unmatched routes
+            $petController->showHomePage();
         }
     ?>
 
