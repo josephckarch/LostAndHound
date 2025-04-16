@@ -21,7 +21,7 @@
     // Check if search is set
     $searchQuery = isset($_GET['search']) ? strtolower(trim($_GET['search'])) : '';
     $filteredPets = [];
-    
+
     if ($searchQuery !== '') {
         while ($row = $result->fetch_assoc()) {
             if (
@@ -40,7 +40,7 @@
             $filteredPets[] = $row;
         }
     }
-    
+
     // Close database connection
     $conn->close();
 ?>
@@ -61,7 +61,6 @@
 
 <body>
     <?php include '../src/views/layout/header.php'; ?>
-    <h1>Pet Listings</h1>
     <?php
     $lostPets = [
         [
