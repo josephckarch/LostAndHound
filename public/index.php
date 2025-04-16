@@ -69,19 +69,27 @@
         <?php include '../src/views/layout/header.php'; ?>
         
         <div class="container">
-            <h2>Cat Image</h2>
+    <h2 class="text-center mb-4">A place for lost pets</h2>
+    <div class="row">
+        <div class="col-md-6 text-center">
             <?php if ($catImage): ?>
-                <img src="<?php echo $catImage; ?>" alt="Random Cat Image" class="img-fluid">
+                <div class="image-crop">
+                    <img src="<?php echo $catImage; ?>" alt="Random Cat Image">
+                </div>
             <?php else: ?>
                 <p>No cat image available.</p>
             <?php endif; ?>
-
-            <h2>Dog Image</h2>
+        </div>
+        <div class="col-md-6 text-center">
             <?php if ($dogImage): ?>
-                <img src="<?php echo $dogImage; ?>" alt="Random Dog Image" class="img-fluid">
+                <div class="image-crop">
+                    <img src="<?php echo $dogImage; ?>" alt="Random Dog Image">
+                </div>
             <?php else: ?>
                 <p>No dog image available.</p>
             <?php endif; ?>
         </div>
+    </div>
+
     </body>
 </html>
