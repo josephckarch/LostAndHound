@@ -16,20 +16,22 @@
         error_reporting(E_ALL);
         ini_set('display_errors', 1);
 
-        function loadEnv($path) {
-        if (!file_exists($path)) return;
-
-        $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-        foreach ($lines as $line) {
-            if (strpos(trim($line), '#') === 0) continue;
-            list($key, $value) = explode('=', $line, 2);
-            $_ENV[trim($key)] = trim($value);
+        function getPhotoApiKey($path) {
+            if (!file_exists($path)) return null;
+        
+            $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+            foreach ($lines as $line) {
+                $line = trim($line);
+                if (str_starts_with($line, 'PHOTO_API_KEY=')) {
+                    return trim(substr($line, strlen('PHOTO_API_KEY=')));
+                }
+            }
+            return null;
         }
-        }
+        
+        $PHOTO_API = getPhotoApiKey(__DIR__ . '/../../../database/.env');
+        
 
-        //For now, put the .env file in database for ease of access
-        loadEnv(__DIR__ . '/../../../database/.env');
-        $PHOTO_API = $_ENV['PHOTO_API_KEY'];
         /*
         // Start the session
         session_start();
