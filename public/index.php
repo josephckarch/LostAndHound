@@ -15,13 +15,12 @@
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
-        // require_once '../vendor/autoload.php';
+        require_once '../vendor/autoload.php';
 
-        //uncomment these
-        // $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../src');
-        // $dotenv->load();
-        // $PHOTO_API = $_ENV['PHOTO_API_KEY'];
-        
+        $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../src');
+        $dotenv->load();
+
+        $PHOTO_API = $_ENV['PHOTO_API_KEY'];
         /*
         // Start the session
         session_start();
