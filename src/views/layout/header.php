@@ -22,6 +22,43 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
+                        <?php
+                            $current_page = $_SERVER['REQUEST_URI'];
+                            if (session_status() === PHP_SESSION_NONE) {
+                                session_start();
+                                var_dump($_SESSION);
+                            }
+                            
+                            if(isset($_SESSION['valid']) && $_SESSION['valid'] === true): ?>
+                                <!-- Links for logged-in users -->
+                                <li class="nav-item <?php echo $current_page == '/profile.php' ? 'active' : ''; ?>">
+                                    <a class="nav-link" href="./profile.php">My Profile</a>
+                                </li>
+                                <li class="nav-item <?php echo $current_page == '/lost-pets-page.php' ? 'active' : ''; ?>">
+                                    <a class="nav-link" href="./lost-pets-page.php">Browse</a>
+                                </li>
+                                <li class="nav-item <?php echo $current_page == '/create-post.php' ? 'active' : ''; ?>">
+                                    <a class="nav-link" href="./create-post.php">Create Post</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./logout.php">Logout</a>
+                                </li>
+                            <?php else: ?>
+                                <!-- Links for guests -->
+                                <li class="nav-item <?php echo $current_page == '/login.php' ? 'active' : ''; ?>">
+                                    <a class="nav-link" href="./login.php">Login</a>
+                                </li>
+                                <li class="nav-item <?php echo $current_page == '/create_account.php' ? 'active' : ''; ?>">
+                                    <a class="nav-link" href="./create_account.php">Sign Up</a>
+                                </li>
+                                <li class="nav-item <?php echo $current_page == '/lost-pets-page.php' ? 'active' : ''; ?>">
+                                    <a class="nav-link" href="./lost-pets-page.php">Browse</a>
+                                </li>
+                            <?php endif; ?>
+                        </ul>
+                    </div>
+                <!-- <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="./login.php">Login</a>
                         </li>
@@ -35,7 +72,7 @@
                             <a class="nav-link" href="./create-post.php">Create Post</a>
                         </li>
                     </ul>
-                </div>
+                </div> -->
             </nav>
         </div>
     </header>

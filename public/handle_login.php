@@ -1,8 +1,19 @@
 <?php
+    //replaced db setup and commented out /vendor/autoload for local dev
     session_start();
-    $config = parse_ini_file("../../../../database/db3_config.ini");
+    //uncomment these
+    // $config = parse_ini_file("../../../../database/db3_config.ini"); 
+    // $conn = new mysqli($config["servername"], $config["username"], $config["password"], $config["dbname"]);
 
-    $conn = new mysqli($config["servername"], $config["username"], $config["password"], $config["dbname"]);
+    //testuser, testuser@gmail.com, testpassword
+
+    $servername = "localhost";
+    $username = "test_user";
+    $password = "test_password";
+    $dbname = "lost_and_hound";
+
+    // Establish database connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
 
     if ($conn->connect_error) {
         die("Connection Failed: " . $conn->connect_error);
