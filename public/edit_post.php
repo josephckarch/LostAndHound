@@ -23,7 +23,7 @@ if ($conn->connect_error) {
  $stmt = $conn->prepare("UPDATE posts SET pet_name =?, status =? ,update_date =?, description =?, location = ? WHERE id = ?");
  $stmt ->bind_param("sssi", $posts['pet_name'],$posts['status'],$posts['update_date'], $posts['description'],$posts['location']);
  $stmt -> execute();
- $stmt -> close;
+ $stmt -> close();
 
  header("Location: profile.php")
 ?>

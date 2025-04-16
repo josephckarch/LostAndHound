@@ -1,3 +1,4 @@
+#!/usr/local/bin/php
 <?php
     $config = parse_ini_file("../../../../database/db3_config.ini");
 
@@ -11,7 +12,7 @@
     $lname = $_POST['lname'];
     $username = $fname . $lname;
     $email = $_POST['email'];
-    $password = $_POST['password'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $phone_number = $_POST['phone_number'];
     
     $stmt = $conn->prepare("INSERT INTO users (username, email, password, phone_number) VALUES (?, ?, ?, ?)");

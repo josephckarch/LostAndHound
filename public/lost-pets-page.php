@@ -1,10 +1,56 @@
+#!/usr/local/bin/php
+<?php
+    // Start the session
+    session_start();
+
+    // Database connection configuration
+    $config = parse_ini_file("../../../../database/db3_config.ini");
+
+    // Connect to the database
+    $conn = new mysqli($config["servername"], $config["username"], $config["password"], $config["dbname"]);
+
+    // Check for connection error
+    if ($conn->connect_error) {
+        die("Connection Failed: " . $conn->connect_error);
+    }
+
+    // Fetch all pets from the database
+    $sql = "SELECT * FROM pets ORDER BY created_at DESC";
+    $result = $conn->query($sql);
+
+    // Check if search is set
+    $searchQuery = isset($_GET['search']) ? strtolower(trim($_GET['search'])) : '';
+    $filteredPets = [];
+    
+    if ($searchQuery !== '') {
+        while ($row = $result->fetch_assoc()) {
+            if (
+                strpos(strtolower($row['name']), $searchQuery) !== false ||
+                strpos(strtolower($row['breed']), $searchQuery) !== false ||
+                strpos(strtolower($row['description']), $searchQuery) !== false ||
+                strpos(strtolower($row['age']), $searchQuery) !== false
+            ) {
+                $filteredPets[] = $row;
+            }
+        }
+    } else {
+        // If no search query, just use all pets
+        $filteredPets = [];
+        while ($row = $result->fetch_assoc()) {
+            $filteredPets[] = $row;
+        }
+    }
+    
+    // Close database connection
+    $conn->close();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lost & Hound - Home</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="./css/styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/js/scripts.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@400;700&display=swap" rel="stylesheet">
@@ -15,6 +61,7 @@
 
 <body>
     <?php include '../src/views/layout/header.php'; ?>
+    <h1>Pet Listings</h1>
     <?php
     $lostPets = [
         [
