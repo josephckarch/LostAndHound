@@ -1,3 +1,4 @@
+#!/usr/local/bin/php
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,12 +13,23 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     </head>
     <?php
-        require_once '../vendor/autoload.php';
+        error_reporting(E_ALL);
+        ini_set('display_errors', 1);
 
-        $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../src');
-        $dotenv->load();
+        function loadEnv($path) {
+        if (!file_exists($path)) return;
 
-        $PHOTO_API = $_ENV['PHOTO_API'];
+        $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        foreach ($lines as $line) {
+            if (strpos(trim($line), '#') === 0) continue;
+            list($key, $value) = explode('=', $line, 2);
+            $_ENV[trim($key)] = trim($value);
+        }
+        }
+
+        //For now, put the .env file in database for ease of access
+        loadEnv(__DIR__ . '/../../../database/.env');
+        $PHOTO_API = $_ENV['PHOTO_API_KEY'];
         /*
         // Start the session
         session_start();
