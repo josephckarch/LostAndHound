@@ -26,9 +26,7 @@
                             $current_page = $_SERVER['REQUEST_URI'];
                             if (session_status() === PHP_SESSION_NONE) {
                                 session_start();
-                                var_dump($_SESSION);
                             }
-                            
                             if(isset($_SESSION['valid']) && $_SESSION['valid'] === true): ?>
                                 <!-- Links for logged-in users -->
                                 <li class="nav-item <?php echo $current_page == '/profile.php' ? 'active' : ''; ?>">
