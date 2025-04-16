@@ -97,7 +97,7 @@
         $filteredPets = [];
 
         if ($searchQuery !== '') {
-            foreach ($lostPets as $pet) {
+            foreach ($filteredPets as $pet) {
                 if (
                     strpos(strtolower($pet['name']), $searchQuery) !== false ||
                     strpos(strtolower($pet['breed']), $searchQuery) !== false ||
@@ -108,8 +108,6 @@
                     $filteredPets[] = $pet;
                 }
             }
-        } else {
-            $filteredPets = $lostPets;
         }
      ?>
 
