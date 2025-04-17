@@ -16,20 +16,26 @@
         die("Connection Failed: " . $conn->connect_error);
     }
 
-    $postId = intval($_GET['id']);
+    $postId = intval($_POST['post_id']);
 
 
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
-        $petName = $_POST['name'];
+        $postId = intval($_POST['post_id']);
+        //pet
+        $petName = $_POST['petName'];
         $petBreed = $_POST['breed'];
         $petAge = $_POST['age'];
-        $petDesc = $_POST['description'];
-        $petStatus = $_POST['status'];
-        $reportDesc = $_POST['description'];  
+        $petDesc = $_POST['petDesc'];
+        $petType = $_POST['petType'];
+
+        //report
+        $petGender = $_POST['gender'];
         $reportLocation = $_POST['location'];
+        $lastSeen = $_POST['lastSeen'];
+        $contactInfo = $_POST['contactInfo'];
+        $status = $_POST['status'];
+        $reportDesc = $_POST['postText'];
 
-
-        // Get pet id from report
         $stmt = $conn->prepare("SELECT pet_id FROM reports WHERE id = ?");
         $stmt->bind_param("i", $postId);
         $stmt->execute();
@@ -37,20 +43,19 @@
         $stmt->fetch();
         $stmt->close();
 
-        // Update posts
-        $stmt = $conn->prepare("UPDATE reports SET description = ?, location = ? WHERE id = ?");
-        $stmt->bind_param("ssi", $reportDesc, $reportLocation, $postId);
+        // Step 2: Update the 'pets' table
+        $stmt = $conn->prepare("UPDATE pets SET name = ?, breed = ?, age = ?, description = ?, status = ?, type = ?, gender = ? WHERE id = ?");
+        $stmt->bind_param("sssssssi", $petName, $petBreed, $petAge, $petDesc, $status, $petType, $petGender, $petId);
         $stmt->execute();
         $stmt->close();
 
-        // Update pets
-        $stmt = $conn->prepare("UPDATE pets SET name = ?, breed = ?, age = ?, description = ?, status = ? WHERE id = ?");
-        $stmt->bind_param("sssssi", $petName, $petBreed, $petAge, $petDesc, $petStatus, $petId);
+        // Step 3: Update the 'reports' table
+        $stmt = $conn->prepare("UPDATE reports SET description = ?, location = ?, last_seen = ?, contact_info = ? WHERE id = ?");
+        $stmt->bind_param("ssssi", $petDesc, $reportLocation, $lastSeen, $contactInfo, $postId);
         $stmt->execute();
         $stmt->close();
     }
 
-    $conn->close();
-
+    // Redirect to a confirmation page or the profile page
     header("Location: profile.php");
 ?>

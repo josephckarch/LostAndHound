@@ -20,7 +20,7 @@
     //     * Delete the report
 
     //get pet id 
-    $postId = intval($_GET['id']);
+    $postId = intval($_POST['post_id']);
 
     $stmt =$conn->prepare("SELECT pet_id FROM reports WHERE id =?");
     $stmt->bind_param("i",$postId);

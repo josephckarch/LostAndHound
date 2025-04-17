@@ -106,7 +106,9 @@
                         <?php if (isset($user['created_at'])): ?>
                             <p><strong>Member Since:</strong> <?= date('F j, Y', strtotime($user['created_at'])) ?></p>
                         <?php endif; ?>
+                        <!-- We aren't done with this
                         <a href="edit_profile.php" class="btn btn-primary">Edit Profile</a>
+                        -->
                     </div>
                 </div>
             </div>
