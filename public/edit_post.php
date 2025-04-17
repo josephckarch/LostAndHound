@@ -7,24 +7,48 @@ $conn = new mysqli($config["servername"], $config["username"], $config["password
  
 
 // needs to be tested 
+// * Update ->
+//   * Update fields that are actually filled out
+
+// need to update the both the report and the pet table 
+
 if ($conn->connect_error) {
     die("Connection Failed: " . $conn->connect_error);
 }
     $postId = intval($_GET['id']);
 
+
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
-        $posts = [];
-        $posts['pet_name'] = $_POST['pet_name'];
-        $posts['status'] =$_POST['status'];
-        $posts['update_date'] =$_POST['update_date'];
-        $posts['description'] =$_POST['description'];
-        $posts['location'] =$_POST['location'];
+
+        $pets['name'] = $_POST['name'];
+        $pets['breed'] = $_POST['breed'];
+        $pets['age'] = $_POST['age'];
+        $pets['description'] = $_POST['description'];
+        $pets['status'] =$_POST['status'];
+        $reports['description'] =$_POST['description'];
+        $reports['location'] =$_POST['location'];
+
+
+            // need to get the pet id from the report 
+        $stmt = $conn->prepare("SELECT pet_id FROM reports WHERE id=?");
+        $stmt-> bind_param("i",$postId);
+        $stmt ->execute();
+        $stmt->bind_result($petId);
+        $stmt->fetch();
+        $stmt->close();
+
+           // now update the report table 
+        $stmt = $conn->prepare("UPDATE reports SET  description =?, location = ? WHERE id = ?");
+        $stmt ->bind_param("ssi", $reports['description'],$reports['location'],$postId);
+        $stmt -> execute();
+        $stmt -> close();
+           // update the pet table 
+        $stmt = $conn->prepare("UPDATE pets SET name = ?, breed = ?,age =? , desciption =? , status =? WHERE id =?");
+        $stmt -> bind_param("sssssi",$pets['name'],$pets['breed'], $pets['age'],$pets['description'], $pets['status'], $petId);
+        $stmt -> execute();
+        $stmt -> close();
     }
+   $conn->close();
 
- $stmt = $conn->prepare("UPDATE posts SET pet_name =?, status =? ,update_date =?, description =?, location = ? WHERE id = ?");
- $stmt ->bind_param("sssi", $posts['pet_name'],$posts['status'],$posts['update_date'], $posts['description'],$posts['location']);
- $stmt -> execute();
- $stmt -> close();
-
- header("Location: profile.php")
+ header("Location: profile.php");
 ?>
