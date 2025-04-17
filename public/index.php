@@ -65,29 +65,80 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     </head>
+
+    <style>
+    .home-container {
+        font-family: 'Spartan', sans-serif;
+        background-color: white;
+        margin: 0;
+        padding: 0;
+        flex: 1;
+    }
+
+    .heading {
+        text-align: center;
+        margin: 80px 0;
+        background-color: white;
+    }
+
+    .left-half {
+        width: 50%;
+        float: left;
+        text-align: center;
+        padding: 20px;
+        flex: 1;
+        background-color: white;
+        margin-bottom: 50px;
+    }
+
+    .right-half {
+        width: 50%;
+        float: right;
+        text-align: center;
+        padding: 20px;
+        flex: 1;
+        background-color: white;
+        margin-bottom: 50px;
+    }
+
+    .landing-image {
+        max-width: 30%;
+        max-height: 100px;
+        margin-bottom: 20px;
+    }
+</style>
+
     <body>
         <?php include '../src/views/layout/header.php'; ?>
-        
-        <div class="container">
-    <h2 class="text-center mb-4">A place for lost pets</h2>
-    <div class="row">
-        <div class="col-md-6 text-center">
-            <?php if ($catImage): ?>
-                <div class="image-crop">
-                    <img src="<?php echo $catImage; ?>" alt="Random Cat Image">
-                </div>
-            <?php else: ?>
-                <p>No cat image available.</p>
-            <?php endif; ?>
-        </div>
-        <div class="col-md-6 text-center">
-            <?php if ($dogImage): ?>
-                <div class="image-crop">
-                    <img src="<?php echo $dogImage; ?>" alt="Random Dog Image">
-                </div>
-            <?php else: ?>
-                <p>No dog image available.</p>
-            <?php endif; ?>
+        <div>
+        <div class="home-container">
+            <h1 class="heading">Connecting Pets and Owners<br>Across Gainesville</h1>
+
+            <div class="left-half">
+                <?php if ($dogImage): ?>
+                    <div class="landing-image">
+                        <img src="<?php echo $dogImage; ?>" alt="Random Dog Image">
+                    </div>
+                <?php else: ?>
+                    <p>No dog image available.</p>
+                <?php endif; ?>
+                <p>I can't find my pet</p>
+                <a href="/create-post.php" class="button">Create a Post</a>
+            </div>
+
+            
+            
+            <div class="right-half">
+                <?php if ($catImage): ?>
+                    <div class="landing-image">
+                        <img src="<?php echo $catImage; ?>" alt="Random Cat Image">
+                    </div>
+                <?php else: ?>
+                    <p>No cat image available.</p>
+                <?php endif; ?>
+                <p>I found someone's pet!</p>
+                <a href="/lost-pets-page.php" class="button">Browse Posts</a>
+            </div>
         </div>
     </div>
 
