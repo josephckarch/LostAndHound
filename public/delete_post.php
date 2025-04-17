@@ -20,7 +20,7 @@
     //     * Delete the report
 
     //get pet id 
-    $postId = intval($_GET['id']);
+    $postId = intval($_POST['post_id']);
 
     $stmt =$conn->prepare("SELECT pet_id FROM reports WHERE id =?");
     $stmt->bind_param("i",$postId);
@@ -30,24 +30,36 @@
     $stmt->close();
 
     // delete post associated with the pet 
-    $stmt = $conn->prepare("DELETE FROM posts WHERE id=?");
+    $stmt = $conn->prepare("DELETE FROM reports WHERE id=?");
     $stmt->bind_param("i", $postId);
     $stmt->execute();
     $stmt->close();
 
-    //delete pet_picture for the pet 
-    $stmt = $conn->prepare("DELETE FROM pet_pictures WHERE pet_id =?");
-    $stmt ->bind_param("i",$petId);
+    //check if the pet is used anymore
+    $stmt = $conn->prepare("SELECT COUNT(*) FROM reports WHERE pet_id = ?");
+    $stmt->bind_param("i", $petId);
     $stmt->execute();
-    $conn->close();
-
-    // now delete the pet 
-    $stmt = $conn->prepare("DELETE FROM pets WHERE id =?");
-    $stmt->bind_param("i",$petId);
-    $stmt->execute();
+    $stmt->bind_result($count);
+    $stmt->fetch();
     $stmt->close();
+
+    if($count == 0) {
+        //delete pet_picture
+        //delete pet_picture for the pet 
+        $stmt = $conn->prepare("DELETE FROM pet_pictures WHERE pet_id =?");
+        $stmt ->bind_param("i",$petId);
+        $stmt->execute();
+        $stmt->close();
+
+        // now delete the pet 
+        $stmt = $conn->prepare("DELETE FROM pets WHERE id =?");
+        $stmt->bind_param("i",$petId);
+        $stmt->execute();
+        $stmt->close();
+    }
 
     $conn->close();
 
     header("Location: profile.php");
+    exit();
 ?>

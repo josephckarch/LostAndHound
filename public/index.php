@@ -72,75 +72,73 @@
         background-color: white;
         margin: 0;
         padding: 0;
-        flex: 1;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
     }
 
     .heading {
+        width: 100%;
         text-align: center;
         margin: 80px 0;
         background-color: white;
     }
-
-    .left-half {
+    .left-half, .right-half {
         width: 50%;
-        float: left;
         text-align: center;
         padding: 20px;
-        flex: 1;
         background-color: white;
         margin-bottom: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
-
-    .right-half {
-        width: 50%;
-        float: right;
-        text-align: center;
-        padding: 20px;
-        flex: 1;
-        background-color: white;
-        margin-bottom: 50px;
-    }
-
     .landing-image {
-        max-width: 30%;
-        max-height: 100px;
+        width: 250px;
+        height: 250px;
         margin-bottom: 20px;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+    .landing-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 </style>
 
     <body>
         <?php include '../src/views/layout/header.php'; ?>
         <div>
-        <div class="home-container">
-            <h1 class="heading">Connecting Pets and Owners<br>Across Gainesville</h1>
+            <div class="home-container">
+                <h1 class="heading">Connecting Pets and Owners<br>Across Gainesville</h1>
 
-            <div class="left-half">
-                <?php if ($dogImage): ?>
-                    <div class="landing-image">
-                        <img src="<?php echo $dogImage; ?>" alt="Random Dog Image">
-                    </div>
-                <?php else: ?>
-                    <p>No dog image available.</p>
-                <?php endif; ?>
-                <p>I can't find my pet</p>
-                <a href="/create-post.php" class="button">Create a Post</a>
-            </div>
+                <div class="left-half">
+                    <?php if ($dogImage): ?>
+                        <div class="landing-image">
+                            <img src="<?php echo $dogImage; ?>" alt="Random Dog Image">
+                        </div>
+                    <?php else: ?>
+                        <p>No dog image available.</p>
+                    <?php endif; ?>
+                    <p>I can't find my pet</p>
+                    <a href="./create-post.php" class="button">Create a Post</a>
+                </div>
 
-            
-            
-            <div class="right-half">
-                <?php if ($catImage): ?>
-                    <div class="landing-image">
-                        <img src="<?php echo $catImage; ?>" alt="Random Cat Image">
-                    </div>
-                <?php else: ?>
-                    <p>No cat image available.</p>
-                <?php endif; ?>
-                <p>I found someone's pet!</p>
-                <a href="/lost-pets-page.php" class="button">Browse Posts</a>
+                    
+                    
+                <div class="right-half">
+                    <?php if ($catImage): ?>
+                        <div class="landing-image">
+                            <img src="<?php echo $catImage; ?>" alt="Random Cat Image">
+                        </div>
+                    <?php else: ?>
+                        <p>No cat image available.</p>
+                    <?php endif; ?>
+                    <p>I found someone's pet!</p>
+                    <a href="./lost-pets-page.php" class="button">Browse Posts</a>
+                </div>
             </div>
         </div>
-    </div>
-
     </body>
 </html>
