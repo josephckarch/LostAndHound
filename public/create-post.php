@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lost & Hound - Home</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="./css/styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/js/scripts.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@400;700&display=swap" rel="stylesheet">
@@ -20,7 +20,7 @@
     <div class="container whole-input">
         <h1 style="font-family: 'Spartan', sans-serif;">Create a Post</h1>
 
-        <form action="./create-post.php" method="POST" enctype="multipart/form-data">
+        <form action="./add_post.php" method="POST" enctype="multipart/form-data">
         <div class="left-input">
             <div class="form-group">
                 <label for="petType">Type of Pet</label>
@@ -35,6 +35,16 @@
             <div class="form-group">
                 <label for="petName">Pet Name</label>
                 <input type="text" class="form-control" id="petName" name="petName" placeholder="e.g. Buddy" required>
+            </div>
+
+            <div class="form-group">
+                <label for="petDesc">Pet Description</label>
+                <input type="text" class="form-control" id="petDesc" name="petDesc" placeholder="e.g. White dog with short hair, small" required>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Pet Age</label>
+                <input type="text" class="form-control" id="age" name="age" placeholder="e.g. 2 years" required>
             </div>
 
             <div class="form-group">
@@ -59,8 +69,19 @@
 
             <div class="form-group">
                 <label for="images">Upload Images</label>
-                <input type="file" class="form-control-file" id="images" name="images[]" multiple>
+                <input type="file" class="form-control-file" id="images" name="images[]" multiple accept=".jpg, .jpeg, image/jpeg">
+
             </div>
+
+            <div class="form-group">
+                <label for="status">Status</label>
+                <select class="form-control" id="status" name="status" required>
+                    <option value="">-- Select Status --</option>
+                    <option value="lost">Lost</option>
+                    <option value="found">Found</option>
+                </select>
+            </div>
+
         </div>
         <div class="right-input">
             <label for="postText">Post Text</label>
