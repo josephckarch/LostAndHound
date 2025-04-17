@@ -16,7 +16,7 @@
             function getSelectedPostRadio() {
                 return document.querySelector('input[name="selectedPost"]:checked');
             }
-
+            /*
             document.getElementById('editSelectedPost').addEventListener('click', () => {
                 const selected = getSelectedPostRadio();
                 if (!selected) {
@@ -44,6 +44,7 @@
                 // Scroll to the edit form
                 document.getElementById('editFormContainer').scrollIntoView({ behavior: 'smooth' });
             });
+            */
 
             document.getElementById('deleteForm').addEventListener('submit', (e) => {
                 const selected = getSelectedPostRadio();
@@ -157,6 +158,7 @@
                             </div>
                         <?php endforeach; ?>
                     </div>
+                    <!-- NOT WORKING, as much as I tried
                     <div id="editFormContainer" style="display: none;">
                         <h2>Edit Post</h2>
                         <form action="./edit_post.php" method="POST" enctype="multipart/form-data">
@@ -211,15 +213,18 @@
                             </div>
                             <div class="form-group">
                                 <label for="editPostText">Post Text</label>
-                                <input type="text" id="editPostText" name="postText">
+                                <textarea id="editPostText" name="postText">
                             </div>
                             <div class="text-center mt-4">
                                 <button type="submit">Update Post</button>
                             </div>
                         </form>
                     </div>
+                                        -->
                     <div class="action-buttons">
+                        <!--
                         <button id="editSelectedPost">Edit Selected Post</button>
+                                        -->
                         <form id="deleteForm" action="./delete_post.php" method="POST" style="display:inline;">
                             <input type="hidden" name="post_id" id="deletePostId">
                             <button type="submit">Delete Selected Post</button>

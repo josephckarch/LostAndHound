@@ -13,7 +13,7 @@ CREATE TABLE users (
     username VARCHAR(50) NOT NULL UNIQUE,
     email VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
-    phone_number VARCHAR(20) DEFAULT NULL, -- We want people to be able to add phone numbers, but not forced
+    phone_number VARCHAR(20) DEFAULT NULL, 
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP -- To discuss: do we want to keep this?
 );
 
