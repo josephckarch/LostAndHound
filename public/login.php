@@ -44,11 +44,11 @@
 </html>
 
 
-// google email authentication WIP 
+<!-- google email authentication WIP 
 
 $email-btn= $_POST['email-btn']
 
-// firebase 
+// firebase -->
 <script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,10 +58,8 @@
     }
 </style>
 
-        
-
 <body>
-        <?php include 'layout/header.php'; ?>
+        <?php include './layout/header.php'; ?>
         
 
     <div class="container my-4">
