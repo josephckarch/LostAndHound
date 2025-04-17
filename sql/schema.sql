@@ -34,10 +34,3 @@ CREATE TABLE pet_pictures (
     image_url VARCHAR(255) NOT NULL,
     FOREIGN KEY (pet_id) REFERENCES pets(id) ON DELETE CASCADE
 );
-
-CREATE TABLE pictures (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    report_id INT NOT NULL,
-    image_url VARCHAR(255) NOT NULL,
-    FOREIGN KEY (report_id) REFERENCES reports(id) ON DELETE CASCADE
-);
