@@ -75,6 +75,12 @@
                             <div class="col-md-6">
                                 <div class="post-card shadow-sm">
                                     <div class="card-body">
+                                        <!-- DISPLAY PET IMAGE -->
+
+                                        <?php if (!empty($post['image_url'])): ?>
+                                            <img src="<?= htmlspecialchars($post['image_url']) ?>" alt="Pet Image" class="img-fluid mb-2" style="max-height: 200px; object-fit: cover;">
+                                        <?php endif; ?>
+
                                         <h5 class="card-title"><?= htmlspecialchars($post['pet_name']) ?></h5>
                                         <p class="card-text">
                                             <span class="badge badge-<?= $post['status'] === 'lost' ? 'danger' : 'success' ?>">

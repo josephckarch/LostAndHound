@@ -22,10 +22,15 @@
     $userStmt->close();
 
     $postStmt = $conn->prepare("
-        SELECT r.*, p.name as pet_name, p.breed, p.status 
-        FROM reports r 
-        JOIN pets p ON r.pet_id = p.id 
-        WHERE r.user_id = ? 
+        SELECT r.*, p.name as pet_name, p.breed, p.status, pic.image_url
+        FROM reports r
+        JOIN pets p ON r.pet_id = p.id
+        LEFT JOIN (
+            SELECT pet_id, MIN(image_url) as image_url
+            FROM pet_pictures
+            GROUP BY pet_id
+        ) pic ON p.id = pic.pet_id
+        WHERE r.user_id = ?
         ORDER BY r.update_date DESC
     ");
     $postStmt->bind_param("i", $userId);
