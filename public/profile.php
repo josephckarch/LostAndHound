@@ -36,6 +36,6 @@
         $posts[] = $row;
     }
     $postStmt->close();
-
+    include '../src/views/layout/header.php';
     include '../src/views/profile.php';
 ?>
